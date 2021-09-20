@@ -19,7 +19,11 @@ if (!isset($_POST['email']) || empty(trim($_POST['email']))) {
 }
 
 if (!isset($_POST['phone']) || empty(trim($_POST['phone']))) {
-	array_push($errors, "Deixe sua mensagem!");
+	array_push($errors, "Informe seu whatsapp!");
+}
+
+if (!isset($_POST['cidade']) || empty(trim($_POST['cidade']))) {
+	array_push($errors, "Informe sua cidade.!");
 }
 
 if (empty($errors)) {
@@ -32,7 +36,7 @@ if (empty($errors)) {
 		$mail->addReplyTo($_POST['email'], $_POST['name']);
 		$mail->WordWrap = 50; // Definir quebra de linha
 		$mail->IsHTML = true ; // Enviar como HTML
-		$mail->Subject   = 'Novo Contato | Site | ' . $_POST['name'] . ' | ' . $_POST['email'];
+		$mail->Subject   = 'Novo Contato | Site | ' . $_POST['name'] . ' | ' . $_POST['email'] . ' | ' . $_POST['phone'] . ' | ' . $_POST['cidade'];
 		$mail->Body      = 'DE: '.$_POST['name'].' <br/> E-MAIL: '.$_POST['email'].' <br/> Whatsapp: '.$_POST['phone'].' <br/> Cidade: '.$_POST['cidade'];
 		$mail->AltBody = 'DE: '.$_POST['name'].' || email: '.$_POST['email'].' || Whatsapp: '.$_POST['phone'].' || Cidade: '.$_POST['cidade']; //PlainText, para caso quem receber o email não aceite o corpo HTML
 		$mail->AddAddress('contato@auroraempreendimentos.site');

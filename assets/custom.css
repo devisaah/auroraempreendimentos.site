@@ -5,3 +5,15 @@
 .show .navbar-nav {
     display: block !important;
 }
+
+.cid-snLZ9yVdrs .navbar-dropdown.bg-color.transparent.opened {
+    background: #044a6f;
+}
+
+.cid-snLZ9yVdrs button.navbar-toggler .hamburger span {
+    background-color: #ffffff;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff;
+}

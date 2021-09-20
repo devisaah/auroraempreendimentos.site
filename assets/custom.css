@@ -1,0 +1,7 @@
+.navbar-collapse .navbar-nav {
+    display: none !important;
+}
+
+.show .navbar-nav {
+    display: block !important;
+}

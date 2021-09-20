@@ -10,14 +10,13 @@ $(document).ready(function() {
           },  
           type: 'POST',
           success: function(data){
-
             console.log("success: ", data);
-            //$(".mbr-form")[0].reset();
+            $(".mbr-form")[0].reset();
             $('[data-form-type="formoid"]').find("[data-form-alert]").removeAttr('hidden');
           },
           error: function(errors) {
             console.log("errors: ", errors);
-            //$(".mbr-form")[0].reset();
+            $(".mbr-form")[0].reset();
             $('[data-form-type="formoid"]').find("[data-form-alert-danger]").removeAttr('hidden');
           }
         });

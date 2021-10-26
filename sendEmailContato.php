@@ -40,13 +40,10 @@ if (empty($errors)) {
 		$mail->Body      = 'DE: '.$_POST['name'].' <br/> E-MAIL: '.$_POST['email'].' <br/> Whatsapp: '.$_POST['phone'].' <br/> Cidade: '.$_POST['cidade'];
 		$mail->AltBody = 'DE: '.$_POST['name'].' || email: '.$_POST['email'].' || Whatsapp: '.$_POST['phone'].' || Cidade: '.$_POST['cidade']; //PlainText, para caso quem receber o email não aceite o corpo HTML
 		$mail->AddAddress('contato@auroraempreendimentos.site');
-		if($file != null){
-    		$mail->AddAttachment( $file , 'SEU SUCESSO COMEÇA HOJE - '.$_POST['name'].'.'.$file_ext );
-		}
 		$mail->Send();
 		echo "E-mail enviado com sucesso!";
 	} catch (Exception $e) {
-		array_push($errors, "Ocorreu um erro ao enviar seu e-mail. Por gentileza tente novamente mais tarde. ".$mail->ErrorInfo);
+		array_push($errors, "Preencha todos os campos.".$mail->ErrorInfo);
 		http_response_code(422);
 		echo json_encode($errors);
 	}
